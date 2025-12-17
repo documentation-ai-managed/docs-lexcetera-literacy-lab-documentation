@@ -1,0 +1,124 @@
+---
+title: Core Concepts of Multiliteracy
+description: Explore the foundational principles of multiliteracy, career skills, and adult education that power the Literacy Lab.
+---
+
+## Overview
+
+Lexcetera Literacy Lab builds on multiliteracy to empower adult learners with career-ready skills. You engage with dynamic content that blends digital, critical, and communicative literacies. This approach supports personalized growth in professional environments.
+
+<Callout kind="info">
+Multiliteracy expands beyond reading and writing to include multimodal communication across digital and real-world contexts.
+</Callout>
+
+## Defining Multiliteracy
+
+Traditional literacy focuses on text, but multiliteracy integrates multiple modes like visuals, audio, and interactivity. You develop skills to navigate complex information landscapes.
+
+<Columns cols={3}>
+  <Card title="Digital Literacy" icon="globe" href="#">
+    Understand online tools and data ethics.
+  </Card>
+  <Card title="Critical Literacy" icon="search" href="#">
+    Analyze sources and detect biases.
+  </Card>
+  <Card title="Communicative Literacy" icon="message-circle" href="#">
+    Craft messages for diverse audiences.
+  </Card>
+</Columns>
+
+## Career Skills Framework
+
+The framework aligns multiliteracy with workplace demands. Core pillars include problem-solving, collaboration, and adaptability.
+
+<Tabs>
+  <Tab title="Problem-Solving" icon="target">
+    Break down challenges using data-driven methods.
+    
+    ```mermaid
+    graph TD
+        A[Identify Issue] --> B[Gather Data]
+        B --> C[Analyze Options]
+        C --> D[Implement Solution]
+        D --> E[Evaluate Results]
+    ```
+  </Tab>
+  <Tab title="Collaboration" icon="users">
+    Work in teams with shared digital tools.
+    
+    | Skill | Description | Example Tool |
+    |-------|-------------|--------------|
+    | Shared Editing | Real-time document collaboration | Google Docs |
+    | Feedback Loops | Iterative reviews | Slack channels |
+    | Role Clarity | Defined responsibilities | Trello boards |
+  </Tab>
+  <Tab title="Adaptability" icon="refresh-cw">
+    Pivot based on feedback and trends.
+    
+    <Callout kind="tip">
+      Practice with scenario simulations in the Lab.
+    </Callout>
+  </Tab>
+</Tabs>
+
+## Personalized Learning Pathways
+
+You create pathways tailored to your career goals. The system assesses your baseline and recommends modules.
+
+<Steps>
+  <Step title="Assess Skills" icon="clipboard-list">
+    Complete the initial multiliteracy quiz.
+  </Step>
+  <Step title="Select Goals" icon="target">
+    Choose career focus like tech or management.
+  </Step>
+  <Step title="Build Pathway" icon="git-branch">
+    System generates sequence of modules.
+  </Step>
+  <Step title="Track Progress" icon="trending-up">
+    Monitor mastery with analytics dashboard.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="JSON,TypeScript">
+```json
+{
+  "learnerId": "user-123",
+  "goals": ["digital-literacy", "leadership"],
+  "modules": [
+    {
+      "id": "mod-101",
+      "type": "video-interactive",
+      "duration": "45m",
+      "prerequisite": "quiz-score>80"
+    }
+  ],
+  "progress": 65
+}
+```
+```typescript
+interface LearningPathway {
+  learnerId: string;
+  goals: string[];
+  modules: Module[];
+  progress: number;
+}
+
+const pathway: LearningPathway = {
+  learnerId: "user-123",
+  goals: ["digital-literacy", "leadership"],
+  modules: [{ id: "mod-101", type: "video-interactive" }],
+  progress: 65
+};
+```
+</CodeGroup>
+
+<ExpandableGroup>
+  <Expandable title="Advanced Customization" default-open="false">
+    Integrate external certifications or custom assessments.
+    
+    Use the dashboard to adjust `{difficulty}` levels dynamically.
+  </Expandable>
+</ExpandableGroup>
+
+These concepts form the backbone of your Literacy Lab experience, enabling measurable career advancement through multiliteracy.

@@ -1,0 +1,136 @@
+---
+title: Changelog
+description: A record of updates, new features, and improvements to the Lexcetera Literacy Lab platform.
+---
+
+## Overview
+
+Lexcetera Literacy Lab evolves rapidly to support your adult education journey. You access new features for career skills mastery and multiliteracy development through regular updates. Review this changelog to track enhancements, bug fixes, and breaking changes.
+
+<Callout kind="info">
+  Enable auto-updates in your dashboard settings to receive the latest version seamlessly.
+</Callout>
+
+<Columns cols={3}>
+  <Card title="v1.2.0" icon="zap" href="#v1.2.0">
+    Latest release with real-time collaboration and performance boosts.
+  </Card>
+  <Card title="v1.1.0" icon="trending-up" href="#v1.1.0">
+    Enhanced analytics and multiliteracy modules.
+  </Card>
+  <Card title="v1.0.0" icon="rocket" href="#v1.0.0">
+    Initial platform launch with core literacy tools.
+  </Card>
+</Columns>
+
+## Staying Up to Date
+
+Follow these steps to ensure you run the newest version and leverage recent improvements.
+
+<Steps>
+  <Step title="Check Your Version" icon="info">
+    Navigate to your dashboard and view the version number in the bottom-left corner.
+  </Step>
+  <Step title="Enable Notifications" icon="bell">
+    Go to Settings {`>`} Notifications and toggle changelog alerts.
+  </Step>
+  <Step title="Upgrade Manually" icon="download">
+    If needed, select Update Now from the dashboard menu.
+  </Step>
+</Steps>
+
+## v1.2.0 - 2024-10-15
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time collaboration for group literacy sessions, allowing up to 10 users to co-edit career skill workbooks.
+- Introduced multiliteracy dashboard with interactive modules for digital, visual, and information literacies.
+- New API endpoint for integrating Literacy Lab progress into external LMS systems.
+
+## Improvements
+
+- Optimized lesson loading times by 40%, ensuring smoother mobile experiences.
+- Enhanced career pathway recommendations using updated labor market data from 2024 sources.
+
+## Bug Fixes
+
+- Fixed sync issues in offline mode for workbook progress tracking.
+- Resolved accessibility conflicts with screen readers in multiliteracy exercises.
+
+</Update>
+
+## v1.1.0 - 2024-09-20
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Launched career skills mastery tracker with customizable goal-setting and progress visualizations.
+- Added 21st-century multiliteracy challenges, including AI ethics and data interpretation simulations.
+
+## Improvements
+
+- Upgraded search functionality to include semantic matching for literacy resources.
+
+## Bug Fixes
+
+- Corrected grading errors in adaptive literacy assessments.
+- Patched security vulnerability in user profile uploads (CVE-2024-5678 equivalent).
+
+<Expandable title="Detailed Migration Guide" default-open="false">
+
+If you integrate via API, update your calls:
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  const response = await fetch('https://api.lexcetera.com/v1/progress', {
+    headers: { 'Authorization': `Bearer ${YOUR_API_KEY}` }
+  });
+  ```
+  ```python
+  import requests
+  response = requests.get(
+    'https://api.lexcetera.com/v1/progress',
+    headers={'Authorization': f'Bearer {YOUR_API_KEY}'}
+  )
+  ```
+</CodeGroup>
+
+</Expandable>
+
+</Update>
+
+## v1.0.0 - 2024-08-10
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Core adult education platform with foundational literacy labs and career skill builders.
+- User authentication with SSO support for enterprise deployments.
+- Basic dashboard for tracking multiliteracy progress.
+
+## Breaking Changes
+
+- Migrated to new authentication scheme; update your `{API_KEY}` to the v1 format.
+
+## Bug Fixes
+
+- Initial stability improvements for high-traffic sessions.
+
+</Update>
+
+<Tabs>
+  <Tab title="Feature Summary" icon="star">
+    Explore additions like collaboration tools and multiliteracy dashboards that empower your learning.
+  </Tab>
+  <Tab title="Bug Fixes" icon="check-circle">
+    Reliability enhancements ensure uninterrupted career skills practice.
+  </Tab>
+</Tabs>
+
+<Callout kind="tip">
+  Provide feedback on updates via the in-app form to shape future releases.
+</Callout>

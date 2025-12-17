@@ -1,0 +1,130 @@
+---
+title: Integrations and Extensions
+description: How to connect the Literacy Lab with third-party tools and services to enhance your learning experience.
+---
+
+## Overview
+
+Connect Lexcetera Literacy Lab to your favorite tools to automate workflows, sync learner progress, and extend functionality. Supported integrations include no-code platforms like Zapier, communication apps like Slack, and learning management systems. Use these connections to notify teams of milestones, import rosters, or trigger custom actions.
+
+## Supported Integrations
+
+Explore key integrations that streamline your adult education and career skills programs.
+
+<Columns cols={3}>
+  <Card title="Zapier" icon="zap" href="https://zapier.com/apps/lexcetera">
+    Automate workflows with 5000+ apps. Trigger actions on lesson completions or enrollments.
+  </Card>
+  <Card title="Slack" icon="message-circle" href="/docs/slack-integration">
+    Send real-time notifications for learner progress and course updates.
+  </Card>
+  <Card title="Google Classroom" icon="chrome" href="/docs/google-classroom">
+    Sync rosters and assignments for seamless multiliteracy development.
+  </Card>
+</Columns>
+
+## Setting Up Connections
+
+Follow these steps to connect Literacy Lab with third-party services. You need admin access and an API key from your dashboard.
+
+<Steps>
+  <Step title="Generate API Key" icon="key">
+    Navigate to **Account > API Keys** in your dashboard.
+
+    Create a new key with `integrations:write` scope.
+  </Step>
+  <Step title="Choose Integration" icon="plug">
+    Select your tool from the integrations list.
+  </Step>
+  <Step title="Authorize Connection" icon="shield">
+    Paste your API key and grant permissions.
+  </Step>
+  <Step title="Test Connection" icon="check-circle">
+    Run a test event to verify data flows correctly.
+  </Step>
+</Steps>
+
+## Platform-Specific Setup
+
+Setup varies by platform. Use the tabs below for detailed instructions.
+
+<Tabs>
+  <Tab title="Zapier" icon="zap">
+    Create a Zap with Literacy Lab as the trigger app.
+
+    <CodeGroup tabs="Trigger,Action">
+      ```json
+      {
+        "event": "user.enrolled",
+        "user_id": "learner_123",
+        "course": "Career Skills 101"
+      }
+      ```
+      ```json
+      {
+        "action": "send_email",
+        "to": "admin@yourorg.com",
+        "subject": "New enrollment"
+      }
+      ```
+    </CodeGroup>
+  </Tab>
+  <Tab title="Slack" icon="message-circle">
+    Add the Literacy Lab app to your workspace.
+
+    Use this webhook URL format: `https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK`
+  </Tab>
+  <Tab title="Webhooks (Custom)" icon="network">
+    Configure outgoing webhooks for real-time events.
+  </Tab>
+</Tabs>
+
+<Callout kind="tip">
+  Store your API key securely as `LEXCETERA_API_KEY`. Rotate keys every 90 days for security.
+</Callout>
+
+## Best Practices for Extensions
+
+Maximize value from integrations with these guidelines.
+
+- Limit triggers to high-impact events like completions or dropouts.
+- Use batch processing for large learner groups to avoid rate limits (`<100` requests/minute).
+- Monitor logs in the dashboard for connection health.
+
+<ExpandableGroup>
+  <Expandable title="Advanced Webhook Example" default-open="false">
+    Set up a custom endpoint to receive events.
+
+    ```javascript
+    app.post('/webhook/lexcetera', (req, res) => {
+      const { event, data } = req.body;
+      if (event === 'lesson.completed') {
+        // Sync to your LMS
+        updateLMSProgress(data.user_id, data.lesson_id);
+      }
+      res.status(200).json({ received: true });
+    });
+    ```
+  </Expandable>
+  <Expandable title="Troubleshooting Common Issues">
+    - **401 Unauthorized**: Check API key permissions.
+    - **Timeout errors**: Reduce payload size `{max: 10kb}`.
+    - **Duplicate events**: Enable idempotency with `request_id`.
+  </Expandable>
+</ExpandableGroup>
+
+## API Reference for Developers
+
+Build custom extensions using our REST API.
+
+<ParamField path="users/{userId}/progress" param-type="GET" required="true">
+  Fetch learner progress data.
+</ParamField>
+
+<ResponseField name="progress" field-type="array" required="true">
+  Array of completed modules.
+</ResponseField>
+
+<ResponseField name="total_score" field-type="number">
+  Overall multiliteracy score (0-100).
+</ResponseField>
